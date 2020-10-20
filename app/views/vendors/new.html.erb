@@ -1,0 +1,17 @@
+<%= form_for @vendor do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+
+   <%= f.label :rep_name %><br>
+  <%= f.text_field :rep_name %><br>
+
+  <%= f.label :rep_email %><br>
+  <%= f.email_field :rep_email %><br>
+
+ 
+
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br>
+  
+  <%=  f.submit "Create Account" %>
+<% end %>
