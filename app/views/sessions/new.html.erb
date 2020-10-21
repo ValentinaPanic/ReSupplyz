@@ -1,9 +1,13 @@
 <%= form_tag({controller: 'sessions', action: 'create', method: 'post'}) do %>
-<%= label_tag :manager_email %>
-<%= text_field_tag :manager_email %><br>
+<%= label_tag :email %>
+<%= text_field_tag :email %><br>
 
-<%= label_tag :manager_password %>
-<%= password_field_tag :manager_password %><br>
-
+<%= label_tag :password %>
+<%= password_field_tag :password %><br>
+<%= label_tag :manager%>
+<%= check_box_tag :manager_id, "manager", false%>
+<%= label_tag :vendor%>
+<%= check_box_tag :vendor_id, 'vendor', false%>
+ <%# byebug%>
 <%= submit_tag "Sign In"%>
 <% end %>
