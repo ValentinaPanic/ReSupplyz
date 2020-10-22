@@ -30,10 +30,11 @@ class ManagersController < ApplicationController
         end
     end
     def show
-        if !logged_in?
-            redirect_to root_path
+        if logged_in?
+             @manager = Manager.find(params[:id])
+            
         else
-        @manager = Manager.find(params[:id])
+             redirect_to root_path
         end
     end
 

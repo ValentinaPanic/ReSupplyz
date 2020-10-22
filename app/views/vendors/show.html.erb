@@ -1,5 +1,7 @@
 <h1>Welcome <%= @vendor.rep_name%>! </h1>
-<%= link_to 'Add A New Product To Your Portfolio', new_product_path %>
+<%= link_to 'Add A New Product To Your Portfolio', new_vendor_product_path(@vendor) %>
+<br>
+<%= link_to 'Your Portfolio', vendor_products_path(@vendor) %>
 
 <br>
 <br>

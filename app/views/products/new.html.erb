@@ -1,4 +1,5 @@
 <%= form_for @product, url: {action: "create"} do |f| %>
+  <%= f.hidden_field :vendor_id%>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
 

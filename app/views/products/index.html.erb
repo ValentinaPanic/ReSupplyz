@@ -1,0 +1,22 @@
+<% @error if @error%>
+
+<%if @vendor%>
+<%= @vendor.rep_name %>, This is your full portfolio for <%= @vendor.name%>
+<br>
+<br>
+<div>
+<% @products.each do |product| %>
+<%= product.name %> - $<%= product.price%> | <%= product.description%>
+<br>
+<% end %>
+<% else %>
+<h4> List of Products </h4>
+<ul>
+<% @products.each do |product| %>
+<li><%= product.name%> - <%= product.vendor.name%></li>
+<br>
+<% end %>
+</ul>
+
+
+<% end %>

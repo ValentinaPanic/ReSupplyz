@@ -18,7 +18,7 @@ class VendorsController < ApplicationController
 
     def edit
         @vendor = Vendor.find(params[:id])
-      end
+    end
     
     def update
         @vendor = Vendor.find(params[:id])
@@ -30,8 +30,12 @@ class VendorsController < ApplicationController
         end
     end
     def show
-        
-        @vendor = Vendor.find(params[:id])
+        if logged_in?
+            @vendor = Vendor.find(params[:id])
+            
+        else
+        redirect_to root_path
+        end
         
     end
 

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
     def welcome
+      @products = Product.all
     end
     
     def new
@@ -23,7 +24,7 @@ class SessionsController < ApplicationController
           redirect_to vendor_path(@vendor)
      
       else
-        flash[:message] = "Credentials are incorect. Try again!"
+        flash[:message] = "Credentials are incorrect. Try again!"
          render 'sessions/new' 
       end
       # byebug

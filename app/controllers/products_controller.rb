@@ -1,16 +1,24 @@
 class ProductsController < ApplicationController
     
+    def index
+        if params[:vendor_id] && @vendor = Vendor.find(params[:vendor_id])
+            @products = @vendor.products
+        else
+           @error = "That Vendor doesn't exists."
+            @products = Product.all
+        end
+      
+    end
     def new
         @product = Product.new
     end
 
     def create
         # byebug
-        @vendor = Vendor.find_by(id: session[:vendor_id])
-        @product = @vendor.products.build(product_params)
+        @product = current_vendor.products.build(product_params)
        
         if @product.save
-            redirect_to vendor_path(@vendor)
+            redirect_to vendor_products_path(current_vendor)
         else 
             render :new
         end
