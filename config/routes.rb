@@ -11,13 +11,12 @@ post '/vendor/signup' =>  'vendors#create'
 get '/signin' =>  'sessions#new'
 post '/signin' =>  'sessions#create'
 
-
-
 get '/logout' => 'sessions#destroy'
 
-
-  
 resources :managers
-
 resources :vendors
+
+resources :products
+resources :orders
+
 end
