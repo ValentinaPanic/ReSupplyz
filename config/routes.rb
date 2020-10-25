@@ -21,10 +21,9 @@ end
 
 resources :products
 
-resources :orders do
-  resources :product_orders, only: [:new, :show, :index]
-end
+resources :orders 
 
-# resources :product_orders
+
+resources :product_orders
 
 end

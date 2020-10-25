@@ -24,20 +24,17 @@ ActiveRecord::Schema.define(version: 2020_10_20_051033) do
   create_table "orders", force: :cascade do |t|
     t.datetime "delivery_date"
     t.boolean "delivered", default: false
-    t.integer "manager_id", null: false
+    t.integer "manager_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["manager_id"], name: "index_orders_on_manager_id"
   end
 
   create_table "product_orders", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "order_id", null: false
+    t.integer "product_id"
+    t.integer "order_id"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_product_orders_on_order_id"
-    t.index ["product_id"], name: "index_product_orders_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -45,10 +42,9 @@ ActiveRecord::Schema.define(version: 2020_10_20_051033) do
     t.string "description"
     t.string "category"
     t.integer "price"
-    t.integer "vendor_id", null: false
+    t.integer "vendor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["vendor_id"], name: "index_products_on_vendor_id"
   end
 
   create_table "vendors", force: :cascade do |t|
@@ -60,8 +56,4 @@ ActiveRecord::Schema.define(version: 2020_10_20_051033) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "orders", "managers"
-  add_foreign_key "product_orders", "orders"
-  add_foreign_key "product_orders", "products"
-  add_foreign_key "products", "vendors"
 end

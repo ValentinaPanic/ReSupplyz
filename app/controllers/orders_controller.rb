@@ -8,27 +8,31 @@ class OrdersController < ApplicationController
 
       @order = Order.new
         4.times do 
-            pr_order = @order.product_orders.build
-            pr_order.build_product
+            @p_ord = @order.product_orders.build
+            @p_ord.build_product
 
         end
-       
     end
 
     def create
-        #  byebug
-        @order = Order.new(order_params)
-       
-        if @order.save
+        # byebug
+        @order = Order.create(order_params)
+        @order.manager = current_manager
+        if @order.save!
             redirect_to order_path(@order)
         else 
         
             render :new
         end
-        
-    end
+    end    
 
+    def show
+        @order = Order.find(params[:id])
+    end
+        
+        private
     def order_params
-        params.require(:order).permit(:delivery_date, :delivered, :manager_id, product_ids: [], product_orders_attributes: [:quantity, :product_id, product_attributes: [:name]])
+        # byebug
+        params.require(:order).permit(:delivery_date, :delivered, :manager_id, product_ids: [], product_order_ids: [], product_orders_attributes:[:quantity, :product_id])
     end
 end

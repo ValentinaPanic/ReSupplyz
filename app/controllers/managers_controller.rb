@@ -30,6 +30,7 @@ class ManagersController < ApplicationController
         end
     end
     def show
+        @vendors = Vendor.all
         if logged_in?
              @manager = Manager.find(params[:id])
             
