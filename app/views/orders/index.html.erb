@@ -1,0 +1,8 @@
+<% @orders.each do |order|%>
+<%= order.delivery_date %><br>
+<% order.products.each do |pro|%>
+<%= pro.name%>
+<%end%>
+<%#byebug%>
+<%end%>
+

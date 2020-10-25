@@ -1,0 +1,26 @@
+<%= form_for @order do |f| %>
+  
+  <%= f.label :delivery_date %><br>
+  <%= f.date_field :delivery_date %><br>
+
+  <%= f.fields_for :product_orders do |pord_fields|%>
+     <%= pord_fields.label :product_id, "Products"%>
+     <h3><%= pord_fields.collection_select(:product_id, Product.all, :id, :name, include_blank: true)%></h3>
+    <%= pord_fields.fields_for :product do |p_fields| %>
+      <%#byebug%>
+   
+    <%= p_fields.label :name, "Product"%>
+    <%= p_fields.text_field :name%>
+    <%end%>
+    
+    
+  
+    <%= pord_fields.label :quantity%>
+    <%= pord_fields.number_field :quantity%><br>
+    <%end%>
+
+  <%= f.label :delivered %><br>
+  <%= f.check_box :delivered %><br>
+  <%= f.submit "Place your order"%>
+
+<%end%>

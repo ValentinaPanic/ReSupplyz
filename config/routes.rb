@@ -14,12 +14,17 @@ post '/signin' =>  'sessions#create'
 get '/logout' => 'sessions#destroy'
 
 resources :managers
+
 resources :vendors do
   resources :products, only: [:new, :show, :index]
 end
 
-
 resources :products
-resources :orders
+
+resources :orders do
+  resources :product_orders, only: [:new, :show, :index]
+end
+
+# resources :product_orders
 
 end

@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
     
     def index
-        if params[:vendor_id] && @vendor = Vendor.find(params[:vendor_id])
+        if params[:vendor_id]
+            @vendor = Vendor.find(params[:vendor_id])
             @products = @vendor.products
         else
-           @error = "That Vendor doesn't exists."
+        #    @error = "That Vendor doesn't exists."
             @products = Product.all
         end
       
@@ -45,7 +46,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.require(:product).permit(:name, :description, :category, :price, :vendor_d)
+        params.require(:product).permit(:name, :description, :category, :price, :vendor_id, order_ids: [] )
     end
 
 end

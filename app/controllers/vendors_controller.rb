@@ -17,7 +17,8 @@ class VendorsController < ApplicationController
     end
 
     def edit
-        @vendor = Vendor.find(params[:id])
+        @vendor = Vendor.find(params[:vendor_id])
+        @vendor = current_vendor if current_vendor
     end
     
     def update
