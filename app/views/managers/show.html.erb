@@ -1,5 +1,13 @@
-<h1>Welcome, <%= @manager.name%>!</h1>
+<nav>
+<%= link_to 'Log Out', logout_path %> |
+<%= link_to 'Start A New Order', new_order_path %> |
+<%= link_to 'Your Orders', orders_path %> |
+<%= link_to 'Available Products', products_path %>
 
-<%= link_to 'Log Out', logout_path %>
+</nav>
+<hr>
+<h1>Welcome, <%= @manager.name%>!</h1>
+<div>
+<%= image_tag("image.png")%>
+</div>
 <br>
-<%= link_to 'Start Your Order', new_order_path %>

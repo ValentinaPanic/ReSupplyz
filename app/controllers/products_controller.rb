@@ -3,10 +3,10 @@ class ProductsController < ApplicationController
     def index
         if params[:vendor_id]
             @vendor = Vendor.find(params[:vendor_id])
-            @products = @vendor.products
+            @products = @vendor.products.alpha
         else
-        #    @error = "That Vendor doesn't exists."
-            @products = Product.all
+        #    @error = "That product doesn't exists."
+            @products = Product.alpha
         end
       
     end

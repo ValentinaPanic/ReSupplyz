@@ -12,7 +12,7 @@ get '/signin' =>  'sessions#new'
 post '/signin' =>  'sessions#create'
 
 get '/logout' => 'sessions#destroy'
-
+get '/auth/:provider/callback' => 'sessions#google'
 resources :managers
 
 resources :product_orders

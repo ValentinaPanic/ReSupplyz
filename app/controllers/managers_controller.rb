@@ -17,19 +17,6 @@ class ManagersController < ApplicationController
         end
     end
 
-    def edit
-        @manager = Manager.find(params[:id])
-      end
-    
-    def update
-        @manager = Manager.find(params[:id])
-        if @manager
-          @manager.update(manager_params)
-          redirect_to manager_path
-        else
-          redirect_to edit_manager_path
-        end
-    end
     def show
         if logged_in?
              @manager = Manager.find(params[:id])

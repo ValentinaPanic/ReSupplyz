@@ -6,14 +6,15 @@
 <br>
 <div>
 <% @products.each do |product| %>
-<%= product.name %> - $<%= product.price%> | <%= product.description%> <%= link_to 'Edit Product', edit_product_path(product) %>
+<%= product.name %> - $<%= product.price%> | <%= product.description%> <%= link_to 'Edit Product', edit_product_path(product) %> |
+
 <br>
 <% end %>
 <% else %>
 <h4> List of Products </h4>
 <ul>
 <% @products.each do |product| %>
-<li><%= product.name%> - <%= product.vendor.name%></li>
+<li><%= link_to product.name, product_path(product)%> - <%= product.vendor.name%></li>
 <br>
 <% end %>
 </ul>

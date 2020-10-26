@@ -1,6 +1,8 @@
 <% @orders.each do |order|%>
 <ul>
-<li><%= order.delivery %> | <%= link_to 'Edit Order', edit_order_path(order),{method: 'get'} %> <br></li>
+<li><%= order.delivery %> | <%= link_to 'Edit Order', edit_order_path(order),{method: 'get'} %> | 
+<%= link_to "Delete Order", order_path(order), method: 'delete'%>
+<br></li>
 <ol>
 <% order.products.each do |pro|%>
 <li><%= pro.name%><br></li>
