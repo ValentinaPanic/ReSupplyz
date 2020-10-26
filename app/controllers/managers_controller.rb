@@ -1,5 +1,6 @@
 class ManagersController < ApplicationController
 
+    
     def new
         @manager = Manager.new
     end
@@ -22,7 +23,7 @@ class ManagersController < ApplicationController
     
     def update
         @manager = Manager.find(params[:id])
-        if @manager.save
+        if @manager
           @manager.update(manager_params)
           redirect_to manager_path
         else
@@ -30,7 +31,6 @@ class ManagersController < ApplicationController
         end
     end
     def show
-        @vendors = Vendor.all
         if logged_in?
              @manager = Manager.find(params[:id])
             

@@ -6,7 +6,7 @@
 <br>
 <div>
 <% @products.each do |product| %>
-<%= product.name %> - $<%= product.price%> | <%= product.description%>
+<%= product.name %> - $<%= product.price%> | <%= product.description%> <%= link_to 'Edit Product', edit_product_path(product) %>
 <br>
 <% end %>
 <% else %>

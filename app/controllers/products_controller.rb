@@ -27,20 +27,20 @@ class ProductsController < ApplicationController
     end
 
     def edit
-        @product = product.find_by(params[:id])
+        @product = Product.find(params[:id])
       end
     
     def update
-        @product = product.find(params[:id])
-        if @product.save
-          @product.update(product_params)
-          redirect_to product_path
-        else
-          redirect_to edit_product_path
+        @product = Product.find(params[:id])
+        redirect_to products_path if !@product || @product.vendor != current_vendor
+        if  @product.update!(product_params)
+            redirect_to product_path
+         else
+            render :edit
         end
     end
     def show
-        @product = product.find(params[:id])
+        @product = Product.find(params[:id])
     end
 
     private

@@ -1,8 +1,13 @@
 <% @orders.each do |order|%>
-<%= order.delivery_date %><br>
+<ul>
+<li><%= order.delivery %> | <%= link_to 'Edit Order', edit_order_path(order),{method: 'get'} %> <br></li>
+<ol>
 <% order.products.each do |pro|%>
-<%= pro.name%>
+<li><%= pro.name%><br></li>
+
 <%end%>
+</ol>
+</ul>
 <%#byebug%>
 <%end%>
 

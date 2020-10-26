@@ -1,4 +1,15 @@
-<%= @order.delivery_date%>
+<ul>
+<li><%= @order.delivery %><br></li>
+<ol>
 <% @order.products.each do |pro|%>
-<%= pro.name%>
+<%#
+byebug%>
+<li><%= pro.name%> - <%= pro.vendor.name%><br></li>
 <%end%>
+</ol>
+</ul>
+<% if @order.manager == current_manager %>
+<h4><%= link_to "Edit Order", edit_order_path(@order), method: 'get'%></h4> |
+<h4><%= link_to "Delete Order", order_path(@order), method: 'delete'%></h4>
+
+<% end %>

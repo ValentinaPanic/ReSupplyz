@@ -15,15 +15,12 @@ get '/logout' => 'sessions#destroy'
 
 resources :managers
 
+resources :product_orders
+resources :orders 
+
 resources :vendors do
   resources :products, only: [:new, :show, :index]
 end
-
 resources :products
-
-resources :orders 
-
-
-resources :product_orders
 
 end
