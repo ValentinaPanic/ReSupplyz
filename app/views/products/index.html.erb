@@ -1,13 +1,13 @@
 <% @error if @error%>
 
 <%if @vendor%>
-<%= @vendor.rep_name %>, This is your full portfolio for <%= @vendor.name%>
+ Portfolio for <%= @vendor.name%>
 <br>
 <br>
 <div>
 <% @products.each do |product| %>
-<%= product.name %> - $<%= product.price%> | <%= product.description%> <%= link_to 'Edit Product', edit_product_path(product) %> |
-
+<%= product.name %> - $<%= product.price%> | <%= product.description%> <%= link_to 'Edit', edit_product_path(product) %> |
+<%= link_to "Delete", product_path(product), method: 'delete'%>
 <br>
 <% end %>
 <% else %>

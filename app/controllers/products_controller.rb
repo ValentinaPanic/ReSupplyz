@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
         else 
             render :new
         end
-        # byebug
     end
 
     def edit
@@ -41,6 +40,10 @@ class ProductsController < ApplicationController
     end
     def show
         @product = Product.find(params[:id])
+    end
+    def destroy
+        @product = Product.find(params[:id]).destroy
+        redirect_to manager_path(current_vendor)
     end
 
     private
