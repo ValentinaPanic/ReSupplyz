@@ -1,3 +1,7 @@
+<nav>
+<%= link_to 'Go Back', vendor_products_path(current_vendor) %>
+</nav>
+<hr>
 <div>
 <strong><%= @product.name%></strong> - $<%= @product.price%>
 <p><%= @product.description%></p>

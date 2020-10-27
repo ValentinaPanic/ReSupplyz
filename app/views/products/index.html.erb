@@ -1,23 +1,29 @@
 <% @error if @error%>
-
-<%if @vendor%>
- Portfolio for <%= @vendor.name%>
+<nav>
+<%= link_to 'Go Back', vendor_path(current_vendor) %>
+</nav>
+<hr>
+<%if @vendor == current_vendor%>
+ <strong>Portfolio for <%= @vendor.name%></strong>
 <br>
 <br>
 <div>
-<% @products.each do |product| %>
-<%= product.name %> - $<%= product.price%> | <%= product.description%> <%= link_to 'Edit', edit_product_path(product) %> |
-<%= link_to "Delete", product_path(product), method: 'delete'%>
-<br>
-<% end %>
+<ul>
+    <% @products.each do |product| %>
+    <li><%= product.name %> - $<%= product.price%> | <%= product.description%> <%= link_to 'Edit', edit_product_path(product) %> |
+    <%= link_to "Delete", product_path(product), method: 'delete'%></li>
+    <br>
+    <% end %>
+ </ul>   
 <% else %>
 <h4> List of Products </h4>
-<ul>
-<% @products.each do |product| %>
-<li><%= link_to product.name, product_path(product)%> - <%= product.vendor.name%></li>
-<br>
-<% end %>
-</ul>
+<hr>
+    <ul>
+    <% @products.each do |product| %>
+    <li><%= link_to product.name, product_path(product)%> - <%= product.vendor.name%></li>
+    <br>
+    <% end %>
+    </ul>
 
-
+</div>
 <% end %>

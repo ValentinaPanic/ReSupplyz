@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
     end
     
     def new
-      
     end
   
     def create
@@ -33,7 +32,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     end
     def google
-      #find_or_create a user using the attributes auth
+      
       @manager = Manager.find_or_create_by(email: auth["info"]["email"]) do |manager|
         manager.name = auth["info"]["name"]
         manager.password = SecureRandom.hex(10)

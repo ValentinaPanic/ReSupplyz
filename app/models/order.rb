@@ -5,6 +5,7 @@ class Order < ApplicationRecord
     belongs_to :manager
     accepts_nested_attributes_for :product_orders
 
+    validates :delivery_date, presence: true
 
     # def product_orders_attributes=(attributes)
       

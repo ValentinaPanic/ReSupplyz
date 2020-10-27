@@ -1,3 +1,6 @@
+
+<%= render partial: "layouts/errors", locals: {object: @product} %>
+
 <%= form_for @product do |f| %>
   <%= f.hidden_field :vendor_id%>
   <%= f.label :name %><br>
@@ -14,3 +17,5 @@
   
   <%= f.submit %>
 <% end %>
+
+<%= link_to 'Go Back', vendor_path(current_vendor) %>

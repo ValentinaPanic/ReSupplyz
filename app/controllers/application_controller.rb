@@ -3,18 +3,20 @@ class ApplicationController < ActionController::Base
     
     helper_method :current_manager
     helper_method :current_vendor
-    helper_method :logged_in?
+    helper_method :logged_in?, :redirect_if_not_logged_in
   
     def logged_in?
       session.include?(:manager_id) || session.include?(:vendor_id)
     end
   
     def current_manager
-     
-      @current_manager ||= Manager.find(session[:manager_id]) if session[:manager_id]
+        @current_manager ||= Manager.find(session[:manager_id]) if session[:manager_id]
     end
     def current_vendor
-     
-      @current_vendor ||= Vendor.find(session[:vendor_id]) if session[:vendor_id]
+        @current_vendor ||= Vendor.find(session[:vendor_id]) if session[:vendor_id]
+    end
+
+    def redirect_if_not_logged_in
+        redirect_to '/' if !logged_in?
     end
 end

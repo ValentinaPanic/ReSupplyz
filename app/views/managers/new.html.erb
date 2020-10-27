@@ -1,3 +1,6 @@
+<%= render partial: "layouts/errors", locals: {object: @manager} %>
+
+<div>
 <%= form_for @manager do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
@@ -13,3 +16,4 @@
   
   <%=  f.submit "Create Account" %>
 <% end %>
+</div>

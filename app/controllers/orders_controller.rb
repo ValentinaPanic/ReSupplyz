@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
-   
+    before_action :redirect_if_not_logged_in
+    before_action :set_order, only: [:show, :edit, :update, :destroy]
+    
     def index
         if current_manager && logged_in?
         @orders = current_manager.orders
@@ -10,7 +12,7 @@ class OrdersController < ApplicationController
     def new
 
       @order = Order.new
-        4.times do 
+        15.times do 
             @p_ord = @order.product_orders.build
             @p_ord.build_product
 
@@ -29,11 +31,10 @@ class OrdersController < ApplicationController
         end
     end    
     def edit
-        @order = Order.find(params[:id])
     end
     
     def update
-        @order = Order.find(params[:id])
+      
          redirect_to manager_path(current_manager) if !@order || @order.manager != current_manager 
         if @order.update(order_params)
           redirect_to order_path(@order)
@@ -43,16 +44,18 @@ class OrdersController < ApplicationController
         end
     end
     def show
-        @order = Order.find(params[:id])
-        
     end
     def destroy
-        @order = Order.find(params[:id]).destroy
+        @order.destroy
         redirect_to manager_path(current_manager)
     end
         
-        private
+    private
+
     def order_params
         params.require(:order).permit(:delivery_date, :delivered, :manager_id, product_ids: [], product_order_ids: [], product_orders_attributes: [:quantity, :id, :product_id])
+    end
+    def set_order
+        @order = Order.find(params[:id])
     end
 end

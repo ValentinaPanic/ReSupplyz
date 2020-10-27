@@ -1,6 +1,8 @@
 class ManagersController < ApplicationController
 
-    
+    def index
+        @managers = Manager.all
+    end
     def new
         @manager = Manager.new
     end
@@ -20,7 +22,6 @@ class ManagersController < ApplicationController
     def show
         if logged_in?
              @manager = Manager.find(params[:id])
-            
         else
              redirect_to root_path
         end
