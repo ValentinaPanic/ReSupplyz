@@ -1,13 +1,15 @@
 <nav>
+<div>
+<%= image_tag("image.png", width: '100px')%><br>
+</div>
 <strong>Restaurant Manager</strong> <%= link_to "Sign Up Here!", manager_signup_path %> |
 
-<strong>Distributor</strong> <%= link_to "Sign Up Here!", vendor_signup_path %>
+<strong>Distributor</strong> <%= link_to "Sign Up Here!", vendor_signup_path %> |
+<%= link_to 'Sign In', signin_path %> <br>
 </nav>
 <hr>
-<h1>Welcome to ReSupplyz <h1>
-
-<%= link_to 'Products', products_path %>
-
+<div>
+<h1>Welcome to ReSupplyz</h1>
 <br>
-<br>
-<%= link_to 'Sign In', signin_path %> <br>
+
+</div>

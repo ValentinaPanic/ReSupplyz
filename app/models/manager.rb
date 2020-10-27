@@ -4,7 +4,7 @@ class Manager < ApplicationRecord
     has_many :orders
     has_many :products, through: :orders
 
-    validates :name, :email, :password, :company_name, presence: true
+    validates :name, :email, presence: true
     validates :email, uniqueness: true
   
     

@@ -1,9 +1,6 @@
-<% @error if @error%>
-<nav>
-<%= link_to 'Go Back', vendor_path(current_vendor) %>
-</nav>
-<hr>
+
 <%if @vendor == current_vendor%>
+
  <strong>Portfolio for <%= @vendor.name%></strong>
 <br>
 <br>

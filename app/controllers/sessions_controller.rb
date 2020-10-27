@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
         manager.name = auth["info"]["name"]
         manager.password = SecureRandom.hex(10)
       end
-      if @manager.save
+      if @manager.save!
         session[:manager_id] = @manager.id
         redirect_to manager_path(@manager)
       else

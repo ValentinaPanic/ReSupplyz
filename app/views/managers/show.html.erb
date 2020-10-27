@@ -1,4 +1,8 @@
 <nav>
+<div>
+<%= image_tag("image.png", width: '100px')%><br>
+</div>
+
 <%= link_to 'Log Out', logout_path %> |
 <%= link_to 'Start A New Order', new_order_path %> |
 <%= link_to 'Your Orders', orders_path %> |
@@ -7,7 +11,10 @@
 </nav>
 <hr>
 <h1>Welcome, <%= @manager.name%>!</h1>
-<div>
-<%= image_tag("image.png")%>
-</div>
+
+<% @manager.orders.each do |order|%>
+<% order.products.each do |product|%>
+<%= product.name%><br>
+<%end%>
+<%end%>
 <br>

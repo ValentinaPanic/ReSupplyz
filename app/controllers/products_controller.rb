@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
         if params[:vendor_id] && @vendor = Vendor.find(params[:vendor_id])
             @products = @vendor.products.alpha
         else
-            @error = "That product doesn't exists." 
             @products = Product.alpha
        
          end
