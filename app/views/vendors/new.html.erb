@@ -1,20 +1,25 @@
 <%= render partial: "layouts/errors", locals: {object: @vendor} %>
+<div class="link-styling">
+    <%= link_to 'Go Back', root_path %>
+</div>
+<div class="title-wrapper">
+  <h1>Create Your Account</h1>
+</div>
 
-
+<div>
 <%= form_for @vendor do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
 
-   <%= f.label :rep_name %><br>
+  <%= f.label :rep_name %><br>
   <%= f.text_field :rep_name %><br>
 
   <%= f.label :email %><br>
   <%= f.email_field :email %><br>
-
  
-
   <%= f.label :password %><br>
-  <%= f.password_field :password %><br>
+  <%= f.password_field :password %><br><br>
   
   <%=  f.submit "Create Account" %>
 <% end %>
+</div>

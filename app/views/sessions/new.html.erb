@@ -1,20 +1,30 @@
-<%= flash[:message] if flash[:message]%>
+<div class="errors">
+    <strong><%= flash[:message] if flash[:message]%></strong>
+</div>
 
-<%= form_tag({controller: 'sessions', action: 'create', method: 'post'}) do %>
-<%= label_tag :email %>
-<%= text_field_tag :email %><br>
+<div class="title-wrapper">
+    <h1>Sign In</h1>
+</div>
 
-<%= label_tag :password %>
-<%= password_field_tag :password %><br>
-<%= label_tag :manager%>
-<%= check_box_tag :manager_id, "manager", false%>
-<%= label_tag :vendor%>
-<%= check_box_tag :vendor_id, 'vendor', false%>
- <% #byebug%>
-<%= submit_tag "Sign In"%>
-<% end %>
-<br>
-<br>
+<div>
+    <%= form_tag({controller: 'sessions', action: 'create', method: 'post'}) do %>
+    <%= label_tag :email %><br>
+    <%= text_field_tag :email %><br>
 
-<%= link_to 'Sign In With Google', '/auth/google_oauth2'%>
-<strong>(ONLY FOR RESTAURANT MANAGERS)</strong>
+    <%= label_tag :password %><br>
+    <%= password_field_tag :password %><br>
+    <%= label_tag :manager%>
+    <%= check_box_tag :manager_id,  false %>
+    <%= label_tag :vendor%>
+    <%= check_box_tag :vendor_id, false %>
+    <br>
+    <br>
+    <%= submit_tag "Sign In"%>
+    <% end %>
+</div>
+
+<div class="google-styling">
+    <%= image_tag("google.png", width: '50px')%><br>
+    <%= link_to 'Sign In With Google', '/auth/google_oauth2'%><br>
+    <strong>(ONLY FOR RESTAURANT MANAGERS)</strong>
+</div>

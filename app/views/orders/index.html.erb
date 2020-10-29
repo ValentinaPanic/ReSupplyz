@@ -1,15 +1,25 @@
-<% @orders.each do |order|%>
-<ul>
-<li><%= order.delivery %> | <%= link_to 'Edit Order', edit_order_path(order),{method: 'get'} %> | 
-<%= link_to "Delete Order", order_path(order), method: 'delete'%>
-<br></li>
-<ol>
-<% order.products.each do |pro|%>
-<li><%= pro.name%><br></li>
+<div class="link-styling">
+    <%= link_to 'Go Back', manager_path(current_manager) %>
+</div>
+<div class="title-wrapper">
+    <h1>All Your Orders</h1>
+</div>
 
-<%end%>
-</ol>
-</ul>
-<%#byebug%>
+<% @orders.each do |order|%>
+<div>
+ <ul>
+    <li><strong><%= order.delivery %>- <%= order.delivery_status%></strong>
+        <div class="link-styling">
+            <%= link_to 'Edit Order', edit_order_path(order) %> | 
+            <%= link_to "Delete Order", order_path(order), method: 'delete'%>
+        </div>
+    </li>
+  <ol>
+    <% order.products.each do |pro|%>
+       <li><%= pro.name%><br></li>
+   <%end%>
+  </ol>
+ </ul>
+</div>
 <%end%>
 

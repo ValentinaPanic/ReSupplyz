@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     end
   
     def create
-      # byebug
+    
       if params[:manager_id]
           @manager = Manager.find_by(email: params[:email]) 
                  
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
        
           session[:vendor_id] = @vendor.id if !@vendor.nil? && @vendor.authenticate(params[:password])
           redirect_to vendor_path(@vendor)
-     
+  
       else
         flash[:message] = "Credentials are incorrect. Try again!"
         render 'sessions/new' 

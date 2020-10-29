@@ -1,19 +1,25 @@
 <%= render partial: "layouts/errors", locals: {object: @manager} %>
+<div class="link-styling">
+    <%= link_to 'Go Back', root_path %>
+</div>
+<div class="title-wrapper">
+  <h1>Create Your Account</h1>
+</div>
 
 <div>
-<%= form_for @manager do |f| %>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %><br>
+  <%= form_for @manager do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
 
-  <%= f.label :email %><br>
-  <%= f.email_field :email %><br>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %><br>
 
-  <%= f.label :company_name %><br>
-  <%= f.text_field :company_name %><br>
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name %><br>
 
-  <%= f.label :password %><br>
-  <%= f.password_field :password %><br>
-  
-  <%=  f.submit "Create Account" %>
-<% end %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br><br>
+    
+    <%=  f.submit "Create Account" %>
+  <% end %>
 </div>

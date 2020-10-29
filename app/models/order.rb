@@ -3,22 +3,22 @@ class Order < ApplicationRecord
     has_many :product_orders
     has_many :products, through: :product_orders
     belongs_to :manager
-    accepts_nested_attributes_for :product_orders
 
+    accepts_nested_attributes_for :product_orders
     validates :delivery_date, presence: true
 
-    # def product_orders_attributes=(attributes)
-      
-    #     attributes.values.each do |v|
-    #         if !v[:quantity].empty?
-    #             self.product_orders << ProductOrder.create(v)
-    #         end
-    #     end
-    # #    byebug
-    # end  
-
+    scope :pending, -> { where(delivered: false)}
+  
     def delivery
         self.delivery_date.strftime("%b %d, %Y")
+    end
+
+    def delivery_status
+        if self.delivered
+            "Delivered"
+        else
+            "Pending"
+        end
     end
  
 end

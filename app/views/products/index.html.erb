@@ -1,26 +1,62 @@
 
-<%if @vendor == current_vendor%>
-
- <strong>Portfolio for <%= @vendor.name%></strong>
-<br>
-<br>
+<%if @vendor = current_vendor%>
 <div>
-<ul>
-    <% @products.each do |product| %>
-    <li><%= product.name %> - $<%= product.price%> | <%= product.description%> <%= link_to 'Edit', edit_product_path(product) %> |
-    <%= link_to "Delete", product_path(product), method: 'delete'%></li>
-    <br>
+<div class="link-styling">
+    <%= link_to 'Go Back', vendor_path(current_vendor) %>
+</div>
+<br>
+ <table>
+        <thead>
+            <tr>
+                <th colspan="1">Product Name</th>
+                <th colspan="1">Price</th>
+                <th colspan="1">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <% @vendor.products.alpha.each do |product| %>
+            <div class="link-styling">
+              <tr>
+                <td><%= product.name %></td> 
+                <td>$<%= product.price%></td>
+                <td><%= product.description%><td>
+                
+               
+                <td><%= link_to 'Edit', edit_product_path(product) %><td>
+                <td><%= link_to "Delete", product_path(product), method: 'delete'%><td>
+               
+              </tr>
+            </div>
     <% end %>
- </ul>   
+    </tbody>
+  </div>  
+ 
 <% else %>
-<h4> List of Products </h4>
-<hr>
-    <ul>
-    <% @products.each do |product| %>
-    <li><%= link_to product.name, product_path(product)%> - <%= product.vendor.name%></li>
-    <br>
-    <% end %>
-    </ul>
 
+<div class="title-wrapper">
+    <h1>All Products</h1>
+</div>
+<div>
+<div class="link-styling">
+    <%= link_to 'Go Back', manager_path(current_manager) %>
+</div>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="1">Product Name</th>
+                <th colspan="1">Price</th>
+                <th colspan="1">Vendor Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @products.alpha.each do |product| %>
+            <tr>
+                <td><%= product.name%></td>
+                <td>$<%= product.price%></td>
+                <td><%= product.vendor.name%></td>
+            </tr>
+            <% end %>
+ 
 </div>
 <% end %>

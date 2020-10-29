@@ -1,21 +1,23 @@
+<div class="title-wrapper">
+    <h1>Order Info</h1>
+</div>
+   <% if @order.manager == current_manager %>
+<div class="link-styling">
+        <%= link_to "Edit Order", edit_order_path(@order), method: 'get'%> |
+        <%= link_to "Delete Order", order_path(@order), method: 'delete'%> |
+        <%= link_to 'Back', manager_path(current_manager) %>
+   
+  <% end %>
+</div>
+<div class="order-wrapper">
+    <ul>
+      <li><strong><%= @order.delivery %> - <%= @order.delivery_status%></strong><br></li>
+     <ol>
+        <% @order.products.each do |pro|%>
+          <li><%= pro.name%> -<%=pro.product_quantity%> - <%= pro.vendor.name%><br></li>
+        <%end%>
+     </ol>
+    </ul>
+</div>
 
-<% if @order.manager == current_manager %>
-<nav>
-<%= link_to "Edit Order", edit_order_path(@order), method: 'get'%> |
-<%= link_to "Delete Order", order_path(@order), method: 'delete'%> |
-<%= link_to 'Back', manager_path(current_manager) %>
-</nav>
-<% end %>
-
-
-<ul>
-<li><%= @order.delivery %><br></li>
-<ol>
-<% @order.products.each do |pro|%>
-<%#
-byebug%>
-<li><%= pro.name%> - <%= pro.vendor.name%><br></li>
-<%end%>
-</ol>
-</ul>
 

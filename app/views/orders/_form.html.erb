@@ -1,8 +1,7 @@
 <%= render partial: "layouts/errors", locals: {object: @order} %>
 
-
+<div>
 <%= form_for @order do |f| %>
-<%#byebug%>
 
   <%= f.label :delivery_date %><br>
   <%= f.date_field :delivery_date %><br>
@@ -21,3 +20,4 @@
   <%= f.submit%>
 
 <%end%>
+<div>

@@ -7,5 +7,5 @@ class Vendor < ApplicationRecord
 
     validates :name, :email, :password, :rep_name, presence: true
     validates :email, uniqueness: true
-
+    
 end

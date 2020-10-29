@@ -1,7 +1,10 @@
+<div class="errors">
+    <%= render partial: "layouts/errors", locals: {object: @product} %>
+</div>
 
-<%= render partial: "layouts/errors", locals: {object: @product} %>
+<div>
+  <%= form_for @product do |f| %>
 
-<%= form_for @product do |f| %>
   <%= f.hidden_field :vendor_id%>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
@@ -14,8 +17,8 @@
 
   <%= f.label :description %><br>
   <%= f.text_area :description %><br>
-  
+
   <%= f.submit %>
 <% end %>
 
-<%= link_to 'Go Back', vendor_path(current_vendor) %>
+</div>

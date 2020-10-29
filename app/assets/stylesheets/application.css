@@ -13,3 +13,70 @@
  *= require_tree .
  *= require_self
  */
+ 
+ body {
+     margin: 50px;
+     background-color: lavender;
+     background-image: url(golden-dust.png);;
+     color: rgb(47, 5, 53);
+     font-family: Arial, Helvetica, sans-serif;
+    }
+
+ .title-wrapper{
+    font-family: 'Orienta', sans-serif;
+    padding: 5px;
+    text-align: center;
+    color: rgb(47, 5, 53);
+ }
+
+ .title-logo{
+  font-family: Bradley Hand, cursive; 
+  text-align: center;
+ }
+.image-style{
+    text-align: center;
+}
+
+.link-styling:hover {
+    text-align: center;
+    display: inline-block;
+    font-size: 150%;
+    border: 2px solid #7c6071;
+    padding: 10px 20px;
+  }
+
+form {
+    width: 100%;
+    background-color: #7c6071;
+    color: white;
+    padding: 14px 14px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+form:focus {
+    border: 10x solid #555;
+  }
+
+.errors {
+    color: rgb(38, 4, 51);
+}
+
+.google-styling{
+    text-align: center;
+    width: 320px;
+    padding: 10px;
+    border: 5px solid #7c6071;
+    margin: auto;
+    background-color: lavender;
+  }
+
+  .image-style{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
