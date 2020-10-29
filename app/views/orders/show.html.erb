@@ -14,7 +14,7 @@
       <li><strong><%= @order.delivery %> - <%= @order.delivery_status%></strong><br></li>
      <ol>
         <% @order.products.each do |pro|%>
-          <li><%= pro.name%> -<%=pro.product_quantity%> - <%= pro.vendor.name%><br></li>
+          <li><%= pro.name%> - <%= pro.vendor.name%><br></li>
         <%end%>
      </ol>
     </ul>

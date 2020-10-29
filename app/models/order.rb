@@ -14,11 +14,10 @@ class Order < ApplicationRecord
     end
 
     def delivery_status
-        if self.delivered
-            "Delivered"
-        else
-            "Pending"
-        end
+        
+        self.delivered ? "Delivered" : "Pending"
     end
+
+    
  
 end

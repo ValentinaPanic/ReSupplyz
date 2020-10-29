@@ -1,24 +1,9 @@
-# README
+     Welcome to ReSupplyz App. 
+To use this app, do the following:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-Clone this repo onto your device.
+-Run 'bundle install' to install all necessary Ruby gems.
+-Run 'rake db:migrate' to migrate the database.
+-Run 'rails s' to start the local server.
+-Open your browser to 'localhost:3000' to run the app.
+-Have fun!

@@ -13,6 +13,5 @@ class Product < ApplicationRecord
     # def self.alpha
     #     order(:name)
     # end
-
-   
+  
 end
