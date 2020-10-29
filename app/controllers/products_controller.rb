@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
     end
     def destroy
         @product.destroy
-        redirect_to manager_path(current_vendor)
+        redirect_to vendor_path(current_vendor)
     end
 
     private
