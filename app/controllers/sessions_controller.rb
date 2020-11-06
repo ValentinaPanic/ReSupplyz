@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
     def welcome
-      @products = Product.all
     end
     
     def new
