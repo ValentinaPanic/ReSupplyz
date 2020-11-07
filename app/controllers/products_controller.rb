@@ -10,6 +10,9 @@ class ProductsController < ApplicationController
        
          end
     end
+    def expensive_products
+        @expensive_products = Product.expensive_products.alpha
+    end
 
     def new
         @product = Product.new

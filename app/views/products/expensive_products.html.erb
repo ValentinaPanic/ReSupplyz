@@ -1,0 +1,12 @@
+<div class="link-styling">
+    <%if current_manager%>
+    <%= link_to 'Go Back', manager_path(current_manager) %>
+    <%end%>
+</div>
+<div>
+    <% @expensive_products.each do |p|%>
+    <ul>
+        <li><%= p.name%> - <%= p.price%></li>
+    </ul>
+    <%end%>
+</div>

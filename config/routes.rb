@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 root 'sessions#welcome'
 
+get '/expensive_products' => 'products#expensive_products'
 get '/manager/signup' =>  'managers#new'
 post '/manager/signup' =>  'managers#create'
 

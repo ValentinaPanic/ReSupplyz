@@ -8,10 +8,13 @@ class Product < ApplicationRecord
     
     scope :alpha, -> { order(:name) }
     
-    
+    scope :expensive_products, -> { where("price > 20")}
     
     # def self.alpha
     #     order(:name)
     # end
   
+    # def self.expensive_products
+    #     where("price > 20").order(:name)
+    # end
 end
